@@ -1,6 +1,7 @@
 package com.example.productservice.controller;
 
 import com.example.productservice.entity.Product;
+import com.example.productservice.entity.ProductCategory;
 import com.example.productservice.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +28,17 @@ public class ProductController {
         return ResponseEntity.ok(product.toProductResponse());
     }
 
-    @GetMapping(value = "/products/{category}")
+    // show all categories of that particular category
+    @GetMapping(value = "/products/category/{category}")
     public ResponseEntity<List<com.example.productservice.response.Product>> fetchProductsByCategory(@PathVariable String category) {
         List<Product> products = this.productService.productsHavingCategory(category); // handle case sensitivity
         return ResponseEntity.ok(products.stream().map(Product::toProductResponse).collect(Collectors.toList()));
+    }
+
+    // get all categories for drop down list
+    @GetMapping(value = "/products/categories")
+    public ResponseEntity<List<com.example.productservice.response.ProductCategory>> getAllCategories() {
+        List<ProductCategory> productCategories = this.productService.allProductCategories();
+        return ResponseEntity.ok(productCategories.stream().map(ProductCategory::toProductCategoryResponse).collect(Collectors.toList()));
     }
 }

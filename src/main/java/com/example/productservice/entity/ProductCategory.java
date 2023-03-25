@@ -30,30 +30,7 @@ public class ProductCategory {
         return name;
     }
 
-    //    TELEVISION,
-//    LAPTOP,
-//    MOBILE_PHONE,
-//    REFRIGERATOR_AND_FREEZER,
-//    WASHING_MACHINE,
-//    AIR_CONDITIONER,
-//    SPEAKERS_MEDIA_PLAYER,
-//    MICROWAVE_AND_OVEN,
-//    MONITOR_AND_ALL_IN_ONES,
-//    VACUUM_CLEANER,
-//    DISHWASHER,
-//    WATER_PURIFIER,
-//
-//    // from Croma
-//    FAN,
-//    ROOM_HEATER,
-//    GEYSER,
-//    SEWING_MACHINE,
-//    VR_HEADSET,
-//    TABLET_AND_IPAD,
-//    ELECTRIC_CHIMNEY,
-//    NETWORK_COMPONENT,
-//    KEYBOARD,
-//    MOUSE,
-//    HEADPHONES_AND_EARPHONES,
-//    GAMING
+    public com.example.productservice.response.ProductCategory toProductCategoryResponse() {
+        return new com.example.productservice.response.ProductCategory(this.id, this.name);
+    }
 }
