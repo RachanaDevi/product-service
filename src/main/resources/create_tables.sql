@@ -1,3 +1,4 @@
+CREATE DATABASE product;
 CREATE TABLE product_categories
 (
     id   serial PRIMARY KEY,

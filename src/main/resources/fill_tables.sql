@@ -1,50 +1,50 @@
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (1, 'TELEVISION');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (2, 'LAPTOP');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (3, 'MOBILE_PHONE');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (4, 'REFRIGERATOR_AND_FREEZER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (5, 'WASHING_MACHINE');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (6, 'AIR_CONDITIONER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (7, 'SPEAKERS_MEDIA_PLAYER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (8, 'MICROWAVE_AND_OVEN');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (9, 'MONITOR_AND_ALL_IN_ONES');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (10, 'VACUUM_CLEANER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (11, 'DISHWASHER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (12, 'WATER_PURIFIER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (13, 'FAN');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (14, 'ROOM_HEATER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (15, 'GEYSER');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (16, 'SEWING_MACHINE');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (17, 'TABLET_AND_IPAD');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (18, 'ELECTRIC_CHIMNEY');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (19, 'NETWORK_COMPONENT');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (20, 'KEYBOARD');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (21, 'MOUSE');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (22, 'HEADPHONES_AND_EARPHONES');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (23, 'GAMING');
-INSERT INTO products_categories (id, name)
+INSERT INTO product_categories (id, name)
 VALUES (24, 'VR_HEADSET');
 
 
