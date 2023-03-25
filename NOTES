@@ -1,5 +1,5 @@
 Curl command for creating a ticket
-curl -X POST http://localhost:8080/createTicket -H "Content-Type: application/json" -d '{"customerId": "1234","concern": "Washing machine not working properly","date" : "2022-01-01"}'
+curl -X GET http://localhost:8083/product/1
 
 Kafka console consumer for message-topic
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ticket-assigned-topic --from-beginning
