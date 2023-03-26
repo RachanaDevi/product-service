@@ -6,6 +6,14 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ticket-assig
 
 curl -X POST http://localhost:8080/createTicket -H "Content-Type: application/json" -d '{"customerId": 1,"concern": "Washing machine","timestamp" : "2023-02-18 01:24:00", "place": "Pune"}'
 
+curl http://localhost:8083/product/1
+
+curl http://localhost:8083/products/categories
+
+curl http://localhost:8083/products/categoryName/GAMING
+
+curl http://localhost:8083/products/category/23
+
 TODO:
 1. Use spring security to store session for customer
 2. Create customer-service which is just entering details for customer

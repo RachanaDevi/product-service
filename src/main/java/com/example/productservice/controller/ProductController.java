@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,9 +30,19 @@ public class ProductController {
     }
 
     // show all categories of that particular category
-    @GetMapping(value = "/products/category/{category}")
+    // see if we want this or not
+    // or use another path
+    // had to change the path
+    @GetMapping(value = "/products/categoryName/{category}")
     public ResponseEntity<List<com.example.productservice.response.Product>> fetchProductsByCategory(@PathVariable String category) {
         List<Product> products = this.productService.productsHavingCategory(category); // handle case sensitivity
+        return ResponseEntity.ok(products.stream().map(Product::toProductResponse).collect(Collectors.toList()));
+    }
+
+    // show all categories of that particular category id
+    @GetMapping(value = "/products/category/{categoryId}")
+    public ResponseEntity<List<com.example.productservice.response.Product>> fetchProductsByCategoryId(@PathVariable Long categoryId) {
+        List<Product> products = this.productService.productsHavingCategory(categoryId); // handle case sensitivity
         return ResponseEntity.ok(products.stream().map(Product::toProductResponse).collect(Collectors.toList()));
     }
 

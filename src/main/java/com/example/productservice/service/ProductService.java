@@ -28,6 +28,10 @@ public class ProductService {
         return productRepository.findByCategory(category);
     }
 
+    public List<Product> productsHavingCategory(Long categoryId) {
+        return productRepository.findByCategory(categoryId);
+    }
+
     public List<ProductCategory> allProductCategories() {
         return productCategoryRepository.findAll();
     }
