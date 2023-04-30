@@ -1,7 +1,7 @@
 package com.example.productservice.controller;
 
 
-import com.example.productservice.model.ProductCategory;
+import com.example.productservice.entity.ProductCategory;
 import com.example.productservice.service.ProductService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
