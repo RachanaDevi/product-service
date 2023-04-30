@@ -1,8 +1,7 @@
-package com.example.productservice.service;
+package com.sysops_squad.productservice.service;
 
-import com.example.productservice.entity.ProductCategory;
-import com.example.productservice.repository.ProductCategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sysops_squad.productservice.entity.ProductCategory;
+import com.sysops_squad.productservice.repository.ProductCategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

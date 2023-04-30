@@ -1,14 +1,21 @@
-package com.example.productservice.model;
+package com.sysops_squad.productservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@Entity
+@Table(name = "product_categories")
 public class ProductCategory {
 
-    private final Long id;
-    private final String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+
+    public ProductCategory() {
+    }
+
 
     public ProductCategory(Long id, String name) {
         this.id = id;
@@ -26,5 +33,9 @@ public class ProductCategory {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    public com.sysops_squad.productservice.model.ProductCategory toResponse() {
+        return new com.sysops_squad.productservice.model.ProductCategory(id, name);
     }
 }

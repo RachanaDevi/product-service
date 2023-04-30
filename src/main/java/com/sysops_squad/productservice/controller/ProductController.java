@@ -1,8 +1,7 @@
-package com.example.productservice.controller;
+package com.sysops_squad.productservice.controller;
 
-import com.example.productservice.model.ProductCategory;
-import com.example.productservice.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sysops_squad.productservice.model.ProductCategory;
+import com.sysops_squad.productservice.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +22,7 @@ public class ProductController {
     @ResponseBody
     public List<ProductCategory> allProductCategories() {
         return productService.allProductCategories().stream()
-                .map(com.example.productservice.entity.ProductCategory::toResponse)
+                .map(com.sysops_squad.productservice.entity.ProductCategory::toResponse)
                 .collect(Collectors.toList());
     }
 }

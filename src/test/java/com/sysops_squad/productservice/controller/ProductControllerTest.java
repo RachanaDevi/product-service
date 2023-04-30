@@ -1,8 +1,8 @@
-package com.example.productservice.controller;
+package com.sysops_squad.productservice.controller;
 
 
-import com.example.productservice.entity.ProductCategory;
-import com.example.productservice.service.ProductService;
+import com.sysops_squad.productservice.entity.ProductCategory;
+import com.sysops_squad.productservice.service.ProductService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

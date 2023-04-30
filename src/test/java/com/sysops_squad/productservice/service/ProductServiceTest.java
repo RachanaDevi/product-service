@@ -1,7 +1,7 @@
-package com.example.productservice.service;
+package com.sysops_squad.productservice.service;
 
-import com.example.productservice.entity.ProductCategory;
-import com.example.productservice.repository.ProductCategoryRepository;
+import com.sysops_squad.productservice.entity.ProductCategory;
+import com.sysops_squad.productservice.repository.ProductCategoryRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -23,6 +23,6 @@ class ProductServiceTest {
     }
 
     private ProductCategory anyProductCategory() {
-        return new com.example.productservice.entity.ProductCategory(1L, "TELEVISION");
+        return new ProductCategory(1L, "TELEVISION");
     }
 }

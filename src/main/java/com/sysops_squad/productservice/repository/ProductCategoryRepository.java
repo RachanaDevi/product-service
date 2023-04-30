@@ -1,6 +1,6 @@
-package com.example.productservice.repository;
+package com.sysops_squad.productservice.repository;
 
-import com.example.productservice.entity.ProductCategory;
+import com.sysops_squad.productservice.entity.ProductCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
