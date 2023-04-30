@@ -16,7 +16,6 @@ public class ProductCategory {
     public ProductCategory() {
     }
 
-
     public ProductCategory(Long id, String name) {
         this.id = id;
         this.name = name;
