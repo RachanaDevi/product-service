@@ -11,14 +11,13 @@ import java.util.stream.Collectors;
 
 @Controller
 public class ProductController {
-
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @GetMapping("/productCategories")
+    @GetMapping("/products/categories")
     @ResponseBody
     public List<ProductCategory> allProductCategories() {
         return productService.allProductCategories().stream()

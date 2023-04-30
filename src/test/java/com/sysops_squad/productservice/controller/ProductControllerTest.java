@@ -30,7 +30,7 @@ public class ProductControllerTest {
     void shouldReturnAllProductCategories() throws Exception {
         when(productService.allProductCategories()).thenReturn(List.of(new ProductCategory(1L, "TELEVISION")));
 
-        mockMvc.perform(get("/productCategories")
+        mockMvc.perform(get("/products/categories")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(result -> Assertions.assertThat(result.getResponse().getContentAsString())
