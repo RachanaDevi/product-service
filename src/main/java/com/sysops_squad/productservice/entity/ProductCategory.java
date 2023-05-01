@@ -2,6 +2,8 @@ package com.sysops_squad.productservice.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +14,9 @@ public class ProductCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "productCategory")
+    private List<Product> products = new ArrayList<>();
 
     public ProductCategory() {
     }
