@@ -1,8 +1,6 @@
 package com.sysops_squad.productservice.controller;
 
 
-import com.sysops_squad.productservice.entity.Product;
-import com.sysops_squad.productservice.entity.ProductCategory;
 import com.sysops_squad.productservice.service.ProductService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,6 +12,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
+import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyProductCategory;
+import static com.sysops_squad.productservice.fixture.ProductFixture.anyOtherTelevisionProduct;
+import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProduct;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,7 +30,7 @@ public class ProductControllerTest {
 
     @Test
     void shouldReturnAllProductCategories() throws Exception {
-        when(productService.allProductCategories()).thenReturn(List.of(televisionProductCategory()));
+        when(productService.allProductCategories()).thenReturn(List.of(anyProductCategory()));
 
         mockMvc.perform(get("/products/categories")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -50,17 +51,5 @@ public class ProductControllerTest {
                                 "{\"id\":1,\"category\":\"" + productCategoryName + "\",\"name\":\"LG Television\",\"brand\":\"LG\"}," +
                                 "{\"id\":2,\"category\":\"" + productCategoryName + "\",\"name\":\"Samsung Television\",\"brand\":\"Samsung\"}" +
                                 "]"));
-    }
-
-    private ProductCategory televisionProductCategory() {
-        return new ProductCategory(1L, "TELEVISION");
-    }
-
-    private Product anyTelevisionProduct() {
-        return new Product(1L, 1L, "LG Television", "LG", "LG", televisionProductCategory());
-    }
-
-    private Product anyOtherTelevisionProduct() {
-        return new Product(2L, 1L, "Samsung Television", "Samsung", "Samsung", televisionProductCategory());
     }
 }

@@ -1,13 +1,14 @@
 package com.sysops_squad.productservice.service;
 
-import com.sysops_squad.productservice.entity.Product;
-import com.sysops_squad.productservice.entity.ProductCategory;
 import com.sysops_squad.productservice.repository.ProductCategoryRepository;
 import com.sysops_squad.productservice.repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyProductCategory;
+import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyTelevisionCategory;
+import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProduct;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -34,17 +35,5 @@ class ProductServiceTest {
         ProductService productService = new ProductService(mock(ProductCategoryRepository.class), productRepository);
 
         assertThat(productService.productsHavingCategory(categoryName)).containsExactly(anyTelevisionProduct());
-    }
-
-    private Product anyTelevisionProduct() {
-        return new Product(1L, 1L, "LG Television", "LG", "LG", anyProductCategory());
-    }
-
-    private ProductCategory anyProductCategory() {
-        return new ProductCategory(1L, anyTelevisionCategory());
-    }
-
-    private String anyTelevisionCategory() {
-        return "TELEVISION";
     }
 }

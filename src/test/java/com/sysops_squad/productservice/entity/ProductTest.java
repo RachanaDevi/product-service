@@ -2,6 +2,8 @@ package com.sysops_squad.productservice.entity;
 
 import org.junit.jupiter.api.Test;
 
+import static com.sysops_squad.productservice.fixture.ProductFixture.anyOtherTelevisionProduct;
+import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProduct;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ProductTest {
@@ -27,17 +29,5 @@ class ProductTest {
         Product product = anyTelevisionProduct();
 
         assertThat(product.toResponse()).isEqualTo(new com.sysops_squad.productservice.model.Product(1L, "TELEVISION", "LG Television", "LG"));
-    }
-
-    private Product anyTelevisionProduct() {
-        return new Product(1L, 1L, "LG Television", "LG", "LG", televisionProductCategory());
-    }
-
-    private Product anyOtherTelevisionProduct() {
-        return new Product(2L, 1L, "Samsung Television", "Samsung", "Samsung", televisionProductCategory());
-    }
-
-    private ProductCategory televisionProductCategory() {
-        return new ProductCategory(1L, "TELEVISION");
     }
 }
