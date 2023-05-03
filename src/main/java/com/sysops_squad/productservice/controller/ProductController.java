@@ -35,4 +35,10 @@ public class ProductController {
                 .map(com.sysops_squad.productservice.entity.Product::toResponse)
                 .collect(Collectors.toList()));
     }
+
+    @GetMapping("/product/{id}")
+    @ResponseBody
+    public ResponseEntity<Product> allProductCategories(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.findByProductId(id).toResponse());
+    }
 }

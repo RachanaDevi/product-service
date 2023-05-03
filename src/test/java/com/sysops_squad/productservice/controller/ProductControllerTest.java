@@ -52,4 +52,15 @@ public class ProductControllerTest {
                                 "{\"id\":2,\"category\":\"" + productCategoryName + "\",\"name\":\"Samsung Television\",\"brand\":\"Samsung\"}" +
                                 "]"));
     }
+
+    @Test
+    void shouldReturnProductGivenProductId() throws Exception {
+        Long productId = 1L;
+        when(productService.findByProductId(productId)).thenReturn(anyTelevisionProduct());
+
+        mockMvc.perform(get("/product/" + productId).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(result -> Assertions.assertThat(result.getResponse().getContentAsString())
+                        .isEqualTo("{\"id\":" + productId + ",\"category\":\"TELEVISION\",\"name\":\"LG Television\",\"brand\":\"LG\"}"));
+    }
 }

@@ -2,6 +2,7 @@ package com.sysops_squad.productservice.service;
 
 import com.sysops_squad.productservice.entity.Product;
 import com.sysops_squad.productservice.entity.ProductCategory;
+import com.sysops_squad.productservice.exception.ProductNotFoundException;
 import com.sysops_squad.productservice.repository.ProductCategoryRepository;
 import com.sysops_squad.productservice.repository.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,9 @@ public class ProductService {
 
     public List<Product> productsHavingCategory(String categoryName) {
         return productRepository.findByCategoryName(categoryName);
+    }
+
+    public Product findByProductId(Long productId) {
+        return productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException(productId));
     }
 }
