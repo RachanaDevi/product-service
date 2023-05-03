@@ -8,6 +8,10 @@ public class ProductCategoryFixture {
         return new ProductCategory(1L, anyTelevisionCategory());
     }
 
+    public static ProductCategory anyProductCategoryWith(String categoryName) {
+        return new ProductCategory(1L, categoryName);
+    }
+
     public static String anyTelevisionCategory() {
         return "TELEVISION";
     }
