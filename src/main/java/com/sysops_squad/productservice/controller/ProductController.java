@@ -1,13 +1,16 @@
 package com.sysops_squad.productservice.controller;
 
+import com.sysops_squad.productservice.exception.ProductNotFoundException;
 import com.sysops_squad.productservice.model.Product;
 import com.sysops_squad.productservice.model.ProductCategory;
 import com.sysops_squad.productservice.service.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,7 +41,12 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     @ResponseBody
-    public ResponseEntity<Product> allProductCategories(@PathVariable Long id) {
-        return ResponseEntity.ok(productService.findByProductId(id).toResponse());
+    public ResponseEntity<?> productHavingId(@PathVariable Long id) {
+        try {
+
+            return ResponseEntity.ok(productService.findByProductId(id).toResponse());
+        } catch (ProductNotFoundException productNotFoundException) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, productNotFoundException.getMessage(), productNotFoundException);
+        }
     }
 }

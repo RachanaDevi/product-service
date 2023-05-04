@@ -1,6 +1,7 @@
 package com.sysops_squad.productservice.controller;
 
 
+import com.sysops_squad.productservice.exception.ProductNotFoundException;
 import com.sysops_squad.productservice.service.ProductService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -62,5 +64,20 @@ public class ProductControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(result -> Assertions.assertThat(result.getResponse().getContentAsString())
                         .isEqualTo("{\"id\":" + productId + ",\"category\":\"TELEVISION\",\"name\":\"LG Television\",\"brand\":\"LG\"}"));
+    }
+
+    @Test
+    void shouldReturnResponseWhenProductNotFound() throws Exception {
+        Long productId = 1L;
+        ProductNotFoundException exceptionThrown = new ProductNotFoundException(productId);
+        when(productService.findByProductId(productId)).thenThrow(exceptionThrown);
+
+        mockMvc.perform(get("/product/" + productId).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound())
+                .andExpect(result -> {
+                    Exception resolvedException = result.getResolvedException();
+                    Assertions.assertThat(resolvedException instanceof ResponseStatusException).isTrue();
+                    Assertions.assertThat(((ResponseStatusException) resolvedException).getReason()).isEqualTo(exceptionThrown.getMessage());
+                });
     }
 }
