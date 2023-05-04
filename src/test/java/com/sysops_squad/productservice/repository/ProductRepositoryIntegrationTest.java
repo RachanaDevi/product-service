@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyTelevisionCategory;
+import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProductWithProductCategoryId;
 import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProductWithProductCategoryName;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -43,6 +44,16 @@ class ProductRepositoryIntegrationTest {
         List<Product> products = productRepository.findByCategoryName(categoryName);
 
         assertThat(products).containsExactly(anyTelevisionProductWithProductCategoryName(categoryName));
+    }
+
+    @Test
+    @Transactional
+    void shouldReturnProductsByCategoryId() {
+        Long categoryId = 1L;
+
+        List<Product> products = productRepository.findByCategoryId(categoryId);
+
+        assertThat(products).containsExactly(anyTelevisionProductWithProductCategoryId(categoryId));
     }
 
     @Test

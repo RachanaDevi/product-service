@@ -49,4 +49,12 @@ public class ProductController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, productNotFoundException.getMessage(), productNotFoundException);
         }
     }
+
+    @GetMapping("/products/category/{categoryId}")
+    @ResponseBody
+    public ResponseEntity<List<Product>> productsHavingCategoryId(@PathVariable Long categoryId) {
+        return ResponseEntity.ok(productService.productsHavingCategoryId(categoryId).stream()
+                .map(com.sysops_squad.productservice.entity.Product::toResponse)
+                .collect(Collectors.toList()));
+    }
 }

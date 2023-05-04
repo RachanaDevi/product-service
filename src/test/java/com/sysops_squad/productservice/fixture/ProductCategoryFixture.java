@@ -12,6 +12,10 @@ public class ProductCategoryFixture {
         return new ProductCategory(1L, categoryName);
     }
 
+    public static ProductCategory anyProductCategoryWith(Long categoryId) {
+        return new ProductCategory(categoryId, anyTelevisionCategory());
+    }
+
     public static String anyTelevisionCategory() {
         return "TELEVISION";
     }

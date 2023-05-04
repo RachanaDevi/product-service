@@ -80,4 +80,18 @@ public class ProductControllerTest {
                     Assertions.assertThat(((ResponseStatusException) resolvedException).getReason()).isEqualTo(exceptionThrown.getMessage());
                 });
     }
+
+    @Test
+    void shouldReturnProductsGivenCategoryId() throws Exception {
+        Long productCategoryId = 1L;
+        when(productService.productsHavingCategoryId(productCategoryId)).thenReturn(List.of(anyTelevisionProduct(), anyOtherTelevisionProduct()));
+
+        mockMvc.perform(get("/products/category/" + productCategoryId).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(result -> Assertions.assertThat(result.getResponse().getContentAsString())
+                        .isEqualTo("[" +
+                                "{\"id\":1,\"category\":\"" + "TELEVISION" + "\",\"name\":\"LG Television\",\"brand\":\"LG\"}," +
+                                "{\"id\":2,\"category\":\"" + "TELEVISION" + "\",\"name\":\"Samsung Television\",\"brand\":\"Samsung\"}" +
+                                "]"));
+    }
 }

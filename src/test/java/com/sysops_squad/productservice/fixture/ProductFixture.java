@@ -7,6 +7,11 @@ import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.any
 
 public class ProductFixture {
 
+
+    public static Product anyTelevisionProductWithProductCategoryId(Long productCategoryId) {
+        return new Product(1L, 1L, "LG Television", "LG", "LG", anyProductCategoryWith(productCategoryId));
+    }
+
     public static Product anyTelevisionProductWithProductCategoryName(String categoryName) {
         return new Product(1L, 1L, "LG Television", "LG", "LG", anyProductCategoryWith(categoryName));
     }

@@ -66,4 +66,16 @@ class ProductServiceTest {
 
         assertThatThrownBy(() -> productService.findByProductId(nonExistentProductId)).isExactlyInstanceOf(ProductNotFoundException.class);
     }
+
+    @Test
+    void shouldReturnProductsGivenCategoryId() {
+        Long categoryId = 1L;
+
+        ProductRepository productRepository = mock(ProductRepository.class);
+        when(productRepository.findByCategoryId(categoryId)).thenReturn(List.of(anyTelevisionProduct()));
+
+        ProductService productService = new ProductService(mock(ProductCategoryRepository.class), productRepository);
+
+        assertThat(productService.productsHavingCategoryId(categoryId)).containsExactly(anyTelevisionProduct());
+    }
 }
