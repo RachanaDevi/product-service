@@ -2,8 +2,8 @@ package com.sysops_squad.productservice.entity;
 
 import org.junit.jupiter.api.Test;
 
-import static com.sysops_squad.productservice.fixture.ProductFixture.anyOtherTelevisionProduct;
-import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProduct;
+import static com.sysops_squad.productservice.fixture.ProductFixture.Entity.anyOtherTelevisionProduct;
+import static com.sysops_squad.productservice.fixture.ProductFixture.Entity.anyTelevisionProduct;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ProductTest {

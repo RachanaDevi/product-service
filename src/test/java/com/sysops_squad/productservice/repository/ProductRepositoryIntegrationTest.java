@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyTelevisionCategory;
-import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProductWithProductCategoryId;
-import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProductWithProductCategoryName;
+import static com.sysops_squad.productservice.fixture.ProductFixture.Entity.anyTelevisionProductWithProductCategoryId;
+import static com.sysops_squad.productservice.fixture.ProductFixture.Entity.anyTelevisionProductWithProductCategoryName;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest

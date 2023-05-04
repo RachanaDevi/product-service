@@ -14,9 +14,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyProductCategory;
-import static com.sysops_squad.productservice.fixture.ProductFixture.anyOtherTelevisionProduct;
-import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProduct;
+import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.Entity.anyProductCategory;
+import static com.sysops_squad.productservice.fixture.ProductFixture.Entity.anyOtherTelevisionProduct;
+import static com.sysops_squad.productservice.fixture.ProductFixture.Entity.anyTelevisionProduct;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

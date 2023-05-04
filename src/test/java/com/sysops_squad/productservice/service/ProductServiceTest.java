@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Optional;
 
-import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyProductCategory;
+import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.Entity.anyProductCategory;
 import static com.sysops_squad.productservice.fixture.ProductCategoryFixture.anyTelevisionCategory;
-import static com.sysops_squad.productservice.fixture.ProductFixture.anyTelevisionProduct;
+import static com.sysops_squad.productservice.fixture.ProductFixture.Entity.anyTelevisionProduct;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
